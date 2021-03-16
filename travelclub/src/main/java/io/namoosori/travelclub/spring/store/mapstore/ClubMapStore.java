@@ -9,6 +9,8 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+import org.springframework.stereotype.Repository;
+
 import io.namoosori.travelclub.spring.aggregate.club.TravelClub;
 import io.namoosori.travelclub.spring.store.ClubStore;
 
@@ -16,6 +18,7 @@ import io.namoosori.travelclub.spring.store.ClubStore;
  * @author syhwang
  *
  */
+@Repository("clubStore")
 public class ClubMapStore implements ClubStore {
 	
 	private Map<String, TravelClub> clubMap;
@@ -37,12 +40,12 @@ public class ClubMapStore implements ClubStore {
 
 	@Override
 	public List<TravelClub> retrieveByName(String name) {
-		//@formatter:off   
+		/* @formatter:off */  
 		return clubMap.values()
 				      .stream()
 				      .filter( club -> club.getName().equals(name))
 				      .collect(Collectors.toList());
-		//@formatter:on
+		/* @formatter:on */
 	}
 
 	@Override
