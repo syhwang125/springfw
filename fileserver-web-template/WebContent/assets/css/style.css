@@ -1,0 +1,261 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;400;700&display=swap');
+
+html, body {
+    min-height: 100%;
+    height: 100%;
+}
+
+.wrapper {
+    height: 100%;
+}
+
+body {
+    font-family: 'Noto Sans KR', 'apple sd gothic neo', sans-serif;
+}
+
+a, a:hover, a:focus {
+    color: #333;
+    text-decoration: none;
+}
+
+.btn {
+    border-radius: 0;
+}
+
+.fl-right {
+    float: right !important;
+}
+
+.fl-left {
+    float: left !important;
+}
+
+.active {
+    display: block !important;
+}
+
+/* header */
+#header {
+    height: 66px;
+    background: #fff;
+
+}
+
+.navbar-default .navbar-brand {
+    color: #1BA78E;
+}
+
+.navbar-default .navbar-brand:hover {
+    color: #1BA78E;
+}
+
+h2.page-title {
+    margin-bottom: 50px;
+}
+
+h2.page-title:after {
+    content: '';
+    display: block;
+    width: 30px;
+    height: 3px;
+    background: #1BA78E;
+    text-align: center;
+    margin: 23px auto;
+}
+
+/* main */
+.container-wrap {
+    padding: 15px 0;
+}
+
+.content {
+    position: relative;
+}
+
+.content .panel-body {
+    padding: 30px;
+}
+
+.btn-action .btn {
+    min-width: 100px;
+}
+
+/* button */
+.btn-primary {
+    color: #fff;
+    background-color: #1BA78E;
+    border-color: #129880;
+}
+
+.btn-primary.active,
+.btn-primary.focus,
+.btn-primary:active,
+.btn-primary:focus,
+.btn-primary:hover,
+.open > .dropdown-toggle.btn-primary {
+    color: #fff;
+    background-color: #1db79b;
+    border-color: #129880;
+}
+
+.btn-primary.btn-bordered {
+    color: #129880;
+    background-color: #fff;
+    border-color: #129880;
+}
+
+.btn-primary.btn-bordered:hover {
+    color: #fff;
+    background-color: #129880;
+    border-color: #129880;
+}
+
+.btn-danger.btn-bordered {
+    background-color: #fff;
+    border-color: #d43f3a;
+    color: #d43f3a;
+}
+
+.btn-danger.btn-bordered:hover {
+    background-color: #d43f3a;
+    border-color: #d43f3a;
+    color: #fff;
+}
+
+#main {
+    padding-top: 80px;
+    padding-bottom: 50px;
+    min-height: calc(100% - 50px);
+}
+
+/* search-form */
+.search-form {
+    padding: 20px;
+    background: #E5E9EB;
+    margin-bottom: 30px;
+}
+
+.search-form .form-group {
+    margin-bottom: 0;
+}
+
+.search-form .form-group .form-control {
+    border: none;
+}
+
+.search-form .form-group .input-group-btn .btn {
+    width: 80px;
+}
+
+.form-control {
+    border-radius: 0;
+    box-shadow: none;
+}
+
+.form-horizontal .form-group .control-label + div p {
+    padding-top: 7px;
+}
+
+.table-wrap {
+    background: #fff;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.table-wrap .table {
+    border-top: 2px solid #555;
+    border-bottom: 1px solid #ddd;
+}
+
+.table > thead > tr > th {
+    padding: 15px 0;
+    background: #FBFBFB;
+}
+
+.table > tbody > tr > td,
+.table > tbody > tr > th,
+.table > tfoot > tr > td,
+.table > tfoot > tr > th,
+.table > thead > tr > td,
+.table > thead > tr > th {
+    height: 48px;
+    vertical-align: middle;
+}
+
+/* panel-bordered */
+.panel-bordered {
+    border-top: 2px solid #555;
+    border-bottom: 1px solid #555;
+}
+
+.panel-bordered .panel-body {
+    padding: 0;
+}
+
+.panel-bordered .panel-body .content {
+    padding: 20px 30px;
+    border-bottom: 1px solid #cecece;
+}
+
+.panel-bordered .panel-body .content .list-inline {
+    margin-bottom: 0;
+}
+
+.panel-bordered .panel-body .content .list-inline li {
+    margin-right: 50px;
+}
+
+.panel-bordered .panel-body .content .content-inner {
+    margin-top: 15px;
+}
+
+.panel-bordered .panel-body .content .title {
+    font-weight: bold;
+    margin-right: 15px;
+}
+
+.panel-bordered .panel-body .content .form-group p {
+    display: inline-block;
+}
+
+/* cover */
+.site-wrapper {
+    display: table;
+    width: 100%;
+    height: calc(100% - 50px);
+    background: #fff;
+}
+
+.site-wrapper-inner {
+    display: table-cell;
+    vertical-align: top;
+}
+
+.cover-container {
+    margin-right: auto;
+    margin-left: auto;
+}
+
+/* footer */
+.footer {
+    width: 100%;
+    background-color: #15171a;
+    height: 50px;
+    color: rgba(240, 240, 255, .45);
+}
+
+.footer .copyright {
+    padding: 15px 0;
+    text-align: center;
+    font-size: 13px;
+}
+
+@media (min-width: 768px) {
+    .site-wrapper-inner {
+        vertical-align: middle;
+    }
+
+    .masthead, .mastfoot, .cover-container {
+        width: 100%;
+    }
+}
