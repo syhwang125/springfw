@@ -21,6 +21,7 @@ public class ProductServiceLogic implements ProductService{
 	public void regist(Product newProduct) {
 		String serialNumber = this.generateSerialNumber();
 		newProduct.setSerialNumber(serialNumber);
+		System.out.println("newProduct.getName" + newProduct.getName());
 		this.productStore.create(newProduct);
 	}
 	

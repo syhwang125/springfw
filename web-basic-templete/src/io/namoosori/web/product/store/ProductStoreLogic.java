@@ -22,6 +22,7 @@ public class ProductStoreLogic implements ProductStore {
 
 	@Override
 	public void create(Product newProduct) {
+		System.out.println("newProduct.getName" + newProduct.getName());
 		this.productMap.put(newProduct.getSerialNumber(), newProduct);
 	}
 
