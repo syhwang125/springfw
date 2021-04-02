@@ -1,9 +1,10 @@
 package io.namoosori.web.fileserver.controller;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
-import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -30,15 +31,23 @@ public class FileRestController {
         // TODO 
     	// 1. save file to server using FileService 
         // 2. redirect to main page
-        return null;
+    	for(int i =0; i < uploadFiles.size(); i++) {	
+    		MultipartFile mpf = uploadFiles.get(i);
+    		File file = new File(mpf.getOriginalFilename());
+    		mpf.transferTo(file);
+    		fileService.upload(file);
+    	}
+//        return new ModelAndView("redirect:/main");
+    	return new ModelAndView("/views/main.jsp");
     }
 
     @GetMapping(value = {"/download"}, produces = MediaType.APPLICATION_OCTET_STREAM_VALUE)
     public ResponseEntity<byte[]> download(@RequestParam("fileName") String fileName) {
         //
     	// TODO send file to client using FileService
-    	
-    	return null;
+    	byte[] contents = fileService.download(fileName);
+    	ResponseEntity<byte[]> responseEntity = new ResponseEntity<byte[]>(contents,HttpStatus.OK);
+    	return responseEntity;
     }
     
 

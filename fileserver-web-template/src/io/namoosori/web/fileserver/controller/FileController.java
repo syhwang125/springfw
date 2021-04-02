@@ -32,6 +32,7 @@ public class FileController {
         
         // TODO Implements method
         
+        fileService.listFilesNameLike(nameLike);
         return modelAndView;
     }
 }
