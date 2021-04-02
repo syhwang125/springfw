@@ -15,7 +15,11 @@ public class FileFindHandler implements FileHandler {
 	public ResponseMessage handle(RequestMessage request) {
 		//
 		// TODO Implement method
-		return null;
+		String fileName = request.getValue(); 
+		
+		char[] fileChar =  getFileStore().readFile(fileName);
+		ResponseMessage response = new ResponseMessage(request.getServiceName(), String.valueOf(fileChar));
+		return response;
 	}
 
 	public FileStore getFileStore() {

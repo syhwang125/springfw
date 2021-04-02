@@ -16,7 +16,10 @@ public class FileDeleteHandler implements FileHandler {
 	public ResponseMessage handle(RequestMessage request) {
 		//
 		// TODO Implement method
-		return null;
+		String fileName = request.getValue();
+		getFileStore().deleteFile(fileName);
+		ResponseMessage response = new ResponseMessage(request.getServiceName(), fileName);
+		return response;
 	}
 
 	public FileStore getFileStore() {

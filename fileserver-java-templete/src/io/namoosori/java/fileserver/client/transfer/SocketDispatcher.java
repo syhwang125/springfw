@@ -3,12 +3,11 @@ package io.namoosori.java.fileserver.client.transfer;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.net.InetSocketAddress;
 import java.net.Socket;
+import java.net.UnknownHostException;
 
-import io.namoosori.java.fileserver.util.ByteUtil;
-import io.namoosori.java.fileserver.util.ReactFailException;
-import io.namoosori.java.fileserver.util.RequestMessage;
-import io.namoosori.java.fileserver.util.ResponseMessage;
+import io.namoosori.java.fileserver.util.*;
 
 public class SocketDispatcher {
 	//
@@ -57,9 +56,11 @@ public class SocketDispatcher {
 		// TODO
 		//  1. read message from server
 		//  2. save message to variable 'json'
-
-
+		int msgLength = ByteUtil.toInt(read(HEADER_LENGTH));
+		byte[] response = read(msgLength);
+		json = new String(response, DEFAULT_CHAR_SET); 
 		return ResponseMessage.fromJson(json);
+
 	}
 
 	public byte[] read(int targetLen) throws IOException {
@@ -102,7 +103,17 @@ public class SocketDispatcher {
 	private Socket prepareSocket(String serverIp, int listeningPort) {
 		//
 		Socket socket = null;
-		// TODO implements socket
+		try {
+			socket = new Socket();
+			socket.setSoLinger(true, 0);
+			socket.setReuseAddress(true);
+			socket.connect(new InetSocketAddress(serverIp, listeningPort), TIME_OUT_IN_SECONDS*1000);
+		} catch (UnknownHostException e) {
+			throw new DispatchFailException(e.getMessage());
+		} catch (IOException e) {
+			e.printStackTrace();
+			throw new DispatchFailException(e.getMessage());
+		}
 
 		return socket;
 	}

@@ -1,10 +1,10 @@
 package io.namoosori.java.fileserver.server.react;
 
+import io.namoosori.java.fileserver.util.ReactFailException;
+
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
-
-import io.namoosori.java.fileserver.util.ReactFailException;
 
 public class FileServerReactor extends Thread {
 	//
@@ -35,6 +35,12 @@ public class FileServerReactor extends Thread {
 
 			// TODO create connection with client
 
+			try {
+				clientSocket = serverSocket.accept();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			(new EventRouter(clientSocket)).route();
 		}
 	}

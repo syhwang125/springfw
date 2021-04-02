@@ -1,20 +1,16 @@
 package io.namoosori.java.fileserver.server.react;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.net.Socket;
-
 import io.namoosori.java.fileserver.context.FileCommand;
-import io.namoosori.java.fileserver.server.handler.FileDeleteHandler;
-import io.namoosori.java.fileserver.server.handler.FileFindHandler;
-import io.namoosori.java.fileserver.server.handler.FileHandler;
-import io.namoosori.java.fileserver.server.handler.FileListHandler;
-import io.namoosori.java.fileserver.server.handler.FileStoreHandler;
+import io.namoosori.java.fileserver.server.handler.*;
 import io.namoosori.java.fileserver.util.ByteUtil;
 import io.namoosori.java.fileserver.util.ReactFailException;
 import io.namoosori.java.fileserver.util.RequestMessage;
 import io.namoosori.java.fileserver.util.ResponseMessage;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.net.Socket;
 
 public class EventRouter {
 	//
@@ -86,6 +82,14 @@ public class EventRouter {
 		// TODO
 		//  1. read message from server
 		//  2. save message to variable 'resultMessage'
+		try {
+			int msgLength = ByteUtil.toInt(this.read(HEADER_LENGTH));
+			byte[] data = this.read(msgLength);
+			resultMessage = new String(data, DEFAULT_CHAR_SET);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 		return resultMessage;
 	}
