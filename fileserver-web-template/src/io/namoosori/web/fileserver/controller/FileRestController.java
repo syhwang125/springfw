@@ -37,14 +37,14 @@ public class FileRestController {
     		mpf.transferTo(file);
     		fileService.upload(file);
     	}
-//        return new ModelAndView("redirect:/main");
-    	return new ModelAndView("/views/main.jsp");
+    	return new ModelAndView("/views/index.jsp");
     }
 
     @GetMapping(value = {"/download"}, produces = MediaType.APPLICATION_OCTET_STREAM_VALUE)
     public ResponseEntity<byte[]> download(@RequestParam("fileName") String fileName) {
         //
     	// TODO send file to client using FileService
+    	
     	byte[] contents = fileService.download(fileName);
     	ResponseEntity<byte[]> responseEntity = new ResponseEntity<byte[]>(contents,HttpStatus.OK);
     	return responseEntity;

@@ -1,6 +1,8 @@
 package io.namoosori.web.fileserver.controller;
 
 
+import java.util.List;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,20 +21,16 @@ public class FileController {
 
     @GetMapping("/")
     public ModelAndView main() {
-        ModelAndView modelAndView = new ModelAndView("/views/main.jsp");
-
         // TODO Implements method
-        
+    	ModelAndView modelAndView = new ModelAndView("/views/main.jsp");
+    	modelAndView.addObject("fileName", fileService.listFiles());
         return modelAndView;
     }
     
     @GetMapping("/find")
     public ModelAndView findNameLike(@RequestParam String nameLike) {
-        ModelAndView modelAndView = new ModelAndView("/views/main.jsp");
-        
         // TODO Implements method
-        
-        fileService.listFilesNameLike(nameLike);
-        return modelAndView;
+        List<String> fileList = fileService.listFilesNameLike(nameLike);
+		return new ModelAndView("/views/main.jsp", "fileNames", fileList);
     }
 }

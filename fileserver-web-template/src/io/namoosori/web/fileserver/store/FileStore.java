@@ -20,64 +20,45 @@ import lombok.RequiredArgsConstructor;
 public class FileStore {
 	//
 	private final FileUtil fileUtil;
-	
+
 	public byte[] readFile(String fileName) {
 		//
 		// TODO Implements method
-		
 		File file = fileUtil.findFile(FileContext.SERVER_REPOSITORY_FOLDER, fileName);
-		if(!file.exists()) {
+		if (!file.exists()) {
 			System.out.println("File Not Found.");
 			return null;
-		} 
+		}
 		return fileUtil.read(file);
 	}
 
 	public void deleteFile(String fileName) {
 		//
 		// TODO Implements method
-		
-//		Path path = Paths.get(FileContext.SERVER_REPOSITORY_FOLDER);
-//		System.out.println(path);
-		
 		String folderName = FileContext.SERVER_REPOSITORY_FOLDER;
 		fileUtil.deleteFile(folderName, fileName);
-		
 	}
 
 	public void writeFile(String fileName, byte[] contents) throws FileAlreadyExistsException {
 		//
 		//
 		// TODO Implements method
-//		File file = new File(FileContext.SERVER_REPOSITORY_FOLDER, fileName);
-		File file = fileUtil.findFile(FileContext.SERVER_REPOSITORY_FOLDER, fileName);
+		File checkfile = fileUtil.findFile(FileContext.SERVER_REPOSITORY_FOLDER, fileName);
+		if(!checkfile.exists()) {
+			File file = fileUtil.createFile(FileContext.SERVER_REPOSITORY_FOLDER, fileName);
+			// 
+			if(file != null) {
+				fileUtil.write(file, contents);
+			}
+		} 
 
-		try {
-			fileUtil.write(file, contents);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 	}
 
 	public List<String> listFiles() {
 		//
 		//
 		// TODO Implements method
-		List<String> fileList = new ArrayList<>();
-		
-		try {
-			Path path = Paths.get(FileContext.SERVER_REPOSITORY_FOLDER);
-			if(!Files.exists(path)) {
-				System.out.println("File Not Found.");
-			} else {
-				File file = new File(path.toString()); 
-				String[] fileNames = file.list();
-				fileList = Arrays.asList(fileNames);
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+		List<String> fileList = fileUtil.findFileList(FileContext.SERVER_REPOSITORY_FOLDER);
 		return fileList;
 	}
 
