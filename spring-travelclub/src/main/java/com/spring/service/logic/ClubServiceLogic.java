@@ -54,20 +54,4 @@ public class ClubServiceLogic implements ClubService {
 		clubStore.delete(clubId);
 	}
 
-    public String registerClub( com.spring.service.TravelClubCdo club ) {
-        // TODO Auto-generated method stub
-        return null;
-    }
-
-    public com.spring.service.TravelClub findClubById( String id ) {
-        // TODO Auto-generated method stub
-        return null;
-    }
-
-    public void modify( String clubId, com.spring.service.NameValueList nameValues ) {
-        // TODO Auto-generated method stub
-        
-    }
-	
-
 }
