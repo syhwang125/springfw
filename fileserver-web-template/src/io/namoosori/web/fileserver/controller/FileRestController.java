@@ -19,7 +19,7 @@ import io.namoosori.web.fileserver.service.FileService;
 import lombok.RequiredArgsConstructor;
 
 @RestController
-@RequestMapping(value = {"/rest"})
+@RequestMapping(value = {"/fileserver-web/rest"})
 @RequiredArgsConstructor
 public class FileRestController {
     //

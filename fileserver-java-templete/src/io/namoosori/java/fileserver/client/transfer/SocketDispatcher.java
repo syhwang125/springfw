@@ -52,6 +52,7 @@ public class SocketDispatcher {
 		write(ByteUtil.toBytes(message.toJson().length()));
 		write(message.toJson().getBytes());
 
+		System.out.println("SocketDispatcher.dispatchReturn() ==> " + message);
 		String json = "";
 		// TODO
 		//  1. read message from server

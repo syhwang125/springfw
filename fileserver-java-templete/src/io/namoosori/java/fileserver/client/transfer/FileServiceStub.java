@@ -11,7 +11,9 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import io.namoosori.java.fileserver.context.FileCommand;
 import io.namoosori.java.fileserver.context.FileContext;
@@ -20,23 +22,29 @@ import io.namoosori.java.fileserver.util.RequestMessage;
 import io.namoosori.java.fileserver.util.ResponseMessage;
 
 public class FileServiceStub implements FileService {
-	//
+
+	private Logger logger = LoggerFactory.getLogger(this.getClass());
+
 	public FileServiceStub() {
 		//
 	}
 
 	@Override
-	public String upload(File file) {
+	public String upload(File file) throws Exception {
 		//
 		SocketDispatcher dispatcher = getDispatcher();
 
 		char[] contents = read(file);
+		if(contents.length<=0) {
+			throw new Exception("File Not Found "  );
+		}
 		RequestMessage requestMessage = new RequestMessage(FileCommand.Store.name(), String.valueOf(contents));
 		requestMessage.setRemark(file.getName());
 
 		ResponseMessage response = null;
 		try {
 			response = dispatcher.dispatchReturn(requestMessage);
+			System.out.println("FileServiceStub.upload ==> " + response );
 		} catch (IOException e) {
 			e.printStackTrace();
 			return null;
@@ -229,7 +237,6 @@ public class FileServiceStub implements FileService {
 		//
 		try (FileWriter fileWriter = new FileWriter(file)) {
 			fileWriter.write(contents);
-
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

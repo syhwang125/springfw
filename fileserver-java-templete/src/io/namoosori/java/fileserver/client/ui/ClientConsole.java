@@ -39,7 +39,12 @@ public class ClientConsole {
     private void upload() {
         //
         String fileName = Console.scan("File name (full name)");
-        new FileServiceStub().upload(new File(fileName));
+        try {
+			new FileServiceStub().upload(new File(fileName));
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
         init();
     }
 

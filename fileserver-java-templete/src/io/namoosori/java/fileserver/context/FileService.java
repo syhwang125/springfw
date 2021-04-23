@@ -5,7 +5,7 @@ import java.util.List;
 
 public interface FileService {
 	//
-	String upload(File file);
+	String upload(File file) throws Exception;
 	String delete(String fileName);
 	String download(String fileName);
 	List<String> listFiles();
