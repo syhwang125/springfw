@@ -2,6 +2,7 @@ package io.namoosori.travelclub.spring.service.logic;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import io.namoosori.travelclub.spring.aggregate.club.CommunityMember;
@@ -15,12 +16,12 @@ import io.namoosori.travelclub.spring.util.exception.NoSuchMemberException;
 @Service
 public class MemberServiceLogic implements MemberService {
 
-//	@Autowired 
+	@Autowired 
 	private MemberStore memberStore;
 	
-	public MemberServiceLogic(MemberStore memberStore) {
-		this.memberStore = memberStore;
-	}
+//	public MemberServiceLogic(MemberStore memberStore) {        //spring IoC 컨테이너에서 DI (dependency Injection, 주입)
+//		this.memberStore = memberStore;
+//	}
 	
 	@Override
 	public String registerMember(MemberCdo member) {
