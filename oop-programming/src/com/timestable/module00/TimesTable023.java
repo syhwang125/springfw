@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class TimesTable023 {
 
-	private static final int MAX_TIMES = 9; 
+	private static final int MAX_TIMES = 9;   
 	private static final  int START_LEFT_NUMBER = 2;
 	private static final String EXIT_MENU = "0";
 	
@@ -214,6 +214,7 @@ public class TimesTable023 {
 			
 			leftNumber += columnCount;
 		} while ( leftNumber <= MAX_TIMES );
+		System.out.println("leftNumber = " + ( leftNumber - columnCount ) + " > max_times " + MAX_TIMES  + ", coumnCount =  " + columnCount  );
 		
 	}
 
