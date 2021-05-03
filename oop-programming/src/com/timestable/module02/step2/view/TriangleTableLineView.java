@@ -5,12 +5,12 @@
  * @author <a href="mailto:tsong@nextree.co.kr">Song, Taegook</a>
  * @since 2014. 6. 10.
  */
-package io.namoosori.oops.timestable.module02.step2.view;
+package com.timestable.module02.step2.view;
 
-import io.namoosori.oops.timestable.module02.step1.view.AbstractTableLineView;
-import io.namoosori.oops.timestable.module02.step1.view.TableLineView;
-import io.namoosori.oops.timestable.module02.step1.view.TableLineViewOption;
-import io.namosoori.oops.timestable.module01.step1.domain.Table;
+import com.timestable.module02.step1.view.AbstractTableLineView;
+import com.timestable.module02.step1.view.TableLineView;
+import com.timestable.module02.step1.view.TableLineViewOption;
+import com.timestable.module01.domain.Table;
 import lombok.Getter;
 import lombok.Setter;
 

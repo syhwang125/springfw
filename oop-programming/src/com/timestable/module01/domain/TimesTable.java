@@ -53,15 +53,13 @@ public class TimesTable implements JsonSerializable {
 	}
 	
 	public void addUnitTable(Table table) {
+
 		this.tableMap.put(table.getLeftNumber(), table);
 	}
 	 
 	
 	public LinkedList<Table> requestTables() {
 		//
-//		System.out.println(tableOption.getEquationOrder().isAscending());  //false
-//		System.out.println(tableOption.getTableOrder().isAscending());   //true
-		
 		if(!tableOption.getTableOrder().isAscending()) {
 			this.startLeftNumber = 9;
 			return requestTablesFrom(this.startLeftNumber);
@@ -94,8 +92,7 @@ public class TimesTable implements JsonSerializable {
 //				System.out.println(leftNumber + " x = " + rightNumber + " = " + leftNumber*rightNumber);
 //			}
 //		}
-		for(int leftNumber = startLeftNumber; leftNumber >= 1; leftNumber --) {
-//			System.out.println("***** " + leftNumber);
+		for(int leftNumber = startLeftNumber; leftNumber > 1; leftNumber --) {
 			addUnitTable(new Table(leftNumber, tableOption.getTableFormat() ) );
 		}
 		
@@ -111,13 +108,7 @@ public class TimesTable implements JsonSerializable {
 	
 	public LinkedList<Table> requestTablesFrom(int startLeftNumber) {
 		
-//		for(int leftNumber = startLeftNumber;  leftNumber >=1; leftNumber--) {
-//			for(int rightNumber = 1; rightNumber <= 9; rightNumber++) {
-//				System.out.print("left = " + leftNumber + ", right = " + rightNumber );
-//			}
-//		}
-		
-		for(int leftNumber = 9; leftNumber >= 1; leftNumber --) {
+		for(int leftNumber = 9; leftNumber > 1; leftNumber --) {
 			addUnitTable(new Table(leftNumber, tableOption.getTableFormat() ) );
 		}
 		

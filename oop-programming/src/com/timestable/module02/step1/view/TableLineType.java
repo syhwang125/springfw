@@ -1,4 +1,4 @@
-package io.namoosori.oops.timestable.module02.step1.view;
+package com.timestable.module02.step1.view;
 
 public enum TableLineType {
     //

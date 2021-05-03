@@ -5,9 +5,9 @@
  * @author <a href="mailto:tsong@nextree.co.kr">Song, Taegook</a>
  * @since 2014. 6. 10.
  */
-package io.namoosori.oops.timestable.module02.step1.view;
+package com.timestable.module02.step1.view;
 
-import io.namosoori.oops.timestable.module01.step1.domain.Table;
+import com.timestable.module01.domain.Table;
 
 import java.util.LinkedList;
 

@@ -1,9 +1,9 @@
-package io.namoosori.oops.timestable.module02.step2.main;
+package com.timestable.module02.step2.main;
 
-import io.namoosori.oops.timestable.module02.step1.view.TableLineType;
-import io.namoosori.oops.timestable.module02.step1.view.ConsoleView;
-import io.namoosori.oops.timestable.module02.step1.view.TableLineViewOption;
-import io.namosoori.oops.timestable.module01.step1.domain.*;
+import com.timestable.module02.step1.view.TableLineType;
+import com.timestable.module02.step1.view.ConsoleView;
+import com.timestable.module02.step1.view.TableLineViewOption;
+import com.timestable.module01.domain.*;
 
 
 public class ViewDemo221 {

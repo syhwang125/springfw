@@ -55,7 +55,7 @@ public class Table implements JsonSerializable {
 	}
 	
 	public void initialize() {
-		System.out.println(leftNumber + " ####### " + Equation.START_RIGHT_NUMBER);
+
 		for(int rightNumber = Equation.START_RIGHT_NUMBER; rightNumber <=Equation. END_RIGHT_NUMBER; rightNumber++) {
 			equationMap.put(rightNumber, new Equation(leftNumber, rightNumber));
 		}
