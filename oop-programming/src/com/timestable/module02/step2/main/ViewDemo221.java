@@ -27,7 +27,7 @@ public class ViewDemo221 {
     }
 
     public static void showTriangleTableDemo(TimesTable timesTable) {
-        //
+        // 
         TableLineViewOption tableLineViewOption = new TableLineViewOption(TableLineType.Triangle, 9);
         ConsoleView consoleView = new ConsoleView(tableLineViewOption);
 

@@ -28,7 +28,7 @@ public class ColumnTableLineView extends AbstractTableLineView {
 
 	@Override
 	public void takeUnitTables(LinkedList<Table> tables) {
-
+ 
 	}
 
 	@Override

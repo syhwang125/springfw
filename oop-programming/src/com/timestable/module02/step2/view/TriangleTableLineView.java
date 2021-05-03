@@ -38,7 +38,7 @@ public class TriangleTableLineView extends AbstractTableLineView {
 	}
 
 	public int getStartIndex() {
-		//
+		// 
 		return startIndex;
 	}
 

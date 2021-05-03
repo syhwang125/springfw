@@ -31,7 +31,7 @@ public class ConsoleView {
 		this.tableLineViewOption = tableLineViewOption;
 		for(AbstractTableLineView tableLineView : tableLineViews) {
 			tableLineView.setTableLineViewOption(tableLineViewOption);
-		}
+		} 
 	}
 
 	public TableLineViewOption getTableViewOption() {

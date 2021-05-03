@@ -37,7 +37,7 @@ public class SquareTableLineView extends AbstractTableLineView {
 			builder.append(formattedEquation);
 			builder.append(" ");
 		}
-
+ 
 		System.out.println(builder.toString());
 	}
 }

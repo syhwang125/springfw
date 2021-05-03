@@ -21,4 +21,4 @@ public abstract class AbstractTableLineView {
 
     abstract public void takeUnitTables(LinkedList<Table> tables);
     abstract public void showTableLine();
-}
+} 

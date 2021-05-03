@@ -21,7 +21,7 @@ public class ViewDemo211 {
         ConsoleView consoleView = new ConsoleView(tableLineViewOption);
 
         consoleView.show(timesTable);
-    }
+    } 
 
     public static void showSquareTableLineViewDemo(TimesTable timesTable) {
         //

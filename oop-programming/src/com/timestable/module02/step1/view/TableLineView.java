@@ -17,4 +17,4 @@ public interface TableLineView {
 	void showTableLine();
 	void setTableLineViewOption(TableLineViewOption tableLineViewOption);
 	TableLineViewOption getTableLineViewOption();
-}
+} 

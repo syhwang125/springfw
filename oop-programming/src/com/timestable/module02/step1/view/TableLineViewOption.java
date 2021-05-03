@@ -22,7 +22,7 @@ public class TableLineViewOption implements JsonSerializable {
         this.tableLineType = tableLineType;
         this.columnCount = 1;
     }
-
+ 
     public TableLineViewOption(TableLineType tableLineType,
                                int columnCount) {
         //

@@ -5,4 +5,4 @@ public enum TableLineType {
     Column,
     Square,
     Triangle        // for stpe2
-}
+} 
