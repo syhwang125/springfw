@@ -68,8 +68,8 @@ public class Table implements JsonSerializable {
 	public List<Equation> requestEquations() {
 		/* @formatter:off */
 		List<Equation> equationList = equationMap.values()
-																			  .stream()
-																			  .collect( Collectors.toList() );
+												 .stream()
+												 .collect( Collectors.toList() );
 //		List<Equation> equationList = equationMap.values().stream().collect( toCollection(ArrayList::new));
 		/* @formatter:on */
 		if ( !equationOrder.isAscending() ) {

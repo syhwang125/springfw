@@ -7,15 +7,16 @@
  */
 package com.timestable.module01.domain;
 
-import java.util.LinkedHashMap;
-import java.util.LinkedList;
-import java.util.Map;
-
 import com.timestable.module01.util.JsonSerializable;
-import static java.util.stream.Collectors.*;
-
 import lombok.Getter;
 import lombok.Setter;
+
+import java.util.*;
+
+import static java.util.Collections.reverse;
+import static java.util.Collections.reverseOrder;
+import static java.util.stream.Collectors.toCollection;
+import static java.util.stream.Collectors.toList;
 
 
 @Getter
@@ -53,70 +54,59 @@ public class TimesTable implements JsonSerializable {
 	}
 	
 	public void addUnitTable(Table table) {
-
 		this.tableMap.put(table.getLeftNumber(), table);
 	}
 	 
 	
 	public LinkedList<Table> requestTables() {
 		//
-		if(!tableOption.getTableOrder().isAscending()) {
-			this.startLeftNumber = 9;
-			return requestTablesFrom(this.startLeftNumber);
+		/* @formatter:off */
+		LinkedList<Table> tableList = this.tableMap
+				.values()
+				.stream()
+				.collect(toCollection(LinkedList::new));
+
+		tableList.forEach(table -> {
+			table.setFormat(tableOption.getTableFormat());
+			table.setEquationOrder(tableOption.getEquationOrder());
+		});
+		/* @formatter:on */
+		if (!tableOption.getTableOrder().isAscending()) {
+			reverse(tableList);
 		}
-		if(!tableOption.getEquationOrder().isAscending()) {
-			this.startLeftNumber = 9;
-			return requestReverseTablesFrom(this.startLeftNumber);
-		}
-		
-		return requestTables(this.startLeftNumber);
+		return tableList;
 	}
 	
-	public LinkedList<Table> requestTables(int startLeftNumber) {
+	public List<Table> requestTables(int startLeftNumber) {
 		//
-		
-		/* @formatter:off */
-		LinkedList<Table> tableList = this.tableMap
-															  .values()
-															  .stream()
-															  .collect ( toCollection(LinkedList::new)); 
-		/* @formatter:on */
-		return tableList;
+		return this.requestTables()
+				   .stream()
+				   .filter( table -> table.getLeftNumber() >= startLeftNumber )
+				   .collect( toList() ) ;
 		
 	}
-	
+
+	// 미작성
 	public LinkedList<Table> requestReverseTablesFrom(int startLeftNumber) {
-		
-//		for(int leftNumber = startLeftNumber;  leftNumber >=1; leftNumber--) {
-//			for(int rightNumber = 1; rightNumber <= 9; rightNumber++) {
-//				System.out.println(leftNumber + " x = " + rightNumber + " = " + leftNumber*rightNumber);
-//			}
-//		}
-		for(int leftNumber = startLeftNumber; leftNumber > 1; leftNumber --) {
-			addUnitTable(new Table(leftNumber, tableOption.getTableFormat() ) );
-		}
-		
 		/* @formatter:off */
 		LinkedList<Table> tableList = this.tableMap
-															  .values()
-															  .stream()
-															  .collect ( toCollection(LinkedList::new)); 
+										  .values()
+										  .stream()
+//										  .sorted(reverseOrder(Map.Entry.comparingByValue()) )
+										  .collect ( toCollection(LinkedList::new));
 		/* @formatter:on */
 		return tableList;
 		
 	}
-	
+
+	// 미작성
 	public LinkedList<Table> requestTablesFrom(int startLeftNumber) {
-		
-		for(int leftNumber = 9; leftNumber > 1; leftNumber --) {
-			addUnitTable(new Table(leftNumber, tableOption.getTableFormat() ) );
-		}
-		
+
 		/* @formatter:off */
 		LinkedList<Table> tableList = this.tableMap
-															  .values()
-															  .stream()
-															  .collect ( toCollection(LinkedList::new)); 
+										  .values()
+						    			  .stream()
+										  .collect( toCollection(LinkedList::new) );
 		/* @formatter:on */
 		return tableList;
 		

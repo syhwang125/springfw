@@ -41,6 +41,10 @@ public class TableOption implements JsonSerializable {
 
     public static void main(String[] args) {
         //
+        TableOption tp = new TableOption(Format.InEnglish, SortOrder.Descending, SortOrder.Descending);
+        System.out.println(tp.toJson());
+        System.out.println();
         System.out.println(sample().toPrettyJson());
+
     }
 }

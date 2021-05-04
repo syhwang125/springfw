@@ -13,7 +13,7 @@ public class TimesTableDemo {
         TimesTable timesTable = new TimesTable();
 
         TableOption tableOption = timesTable.getTableOption();
-        tableOption.setTableFormat(Format.InMath);
+        tableOption.setTableFormat(Format.InEnglish);
         tableOption.setTableOrder(SortOrder.Ascending);
         tableOption.setEquationOrder(SortOrder.Descending);
         timesTable.setTableOption(tableOption);
