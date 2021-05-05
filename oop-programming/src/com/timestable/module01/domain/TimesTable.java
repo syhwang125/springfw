@@ -62,9 +62,12 @@ public class TimesTable implements JsonSerializable {
 		//
 		/* @formatter:off */
 		LinkedList<Table> tableList = this.tableMap
-				.values()
-				.stream()
-				.collect(toCollection(LinkedList::new));
+															  .values()
+															  .stream()
+//															  .forEach( table -> { table.setFormat(tableOption.getTableFormat());
+//															  								table.setEquationOrder(tableOption.getEquationOrder());
+//															                              } )
+															  .collect(toCollection(LinkedList::new));
 
 		tableList.forEach(table -> {
 			table.setFormat(tableOption.getTableFormat());
@@ -77,8 +80,11 @@ public class TimesTable implements JsonSerializable {
 		return tableList;
 	}
 	
+	
+	// 이건 언제 호출되지? 
 	public List<Table> requestTables(int startLeftNumber) {
 		//
+		
 		return this.requestTables()
 				   .stream()
 				   .filter( table -> table.getLeftNumber() >= startLeftNumber )
@@ -86,31 +92,29 @@ public class TimesTable implements JsonSerializable {
 		
 	}
 
-	// 미작성
-	public LinkedList<Table> requestReverseTablesFrom(int startLeftNumber) {
-		/* @formatter:off */
-		LinkedList<Table> tableList = this.tableMap
-										  .values()
-										  .stream()
-//										  .sorted(reverseOrder(Map.Entry.comparingByValue()) )
-										  .collect ( toCollection(LinkedList::new));
-		/* @formatter:on */
-		return tableList;
-		
-	}
-
-	// 미작성
-	public LinkedList<Table> requestTablesFrom(int startLeftNumber) {
-
-		/* @formatter:off */
-		LinkedList<Table> tableList = this.tableMap
-										  .values()
-						    			  .stream()
-										  .collect( toCollection(LinkedList::new) );
-		/* @formatter:on */
-		return tableList;
-		
-	}
+//	public LinkedList<Table> requestReverseTablesFrom(int startLeftNumber) {
+//		/* @formatter:off */
+//		LinkedList<Table> tableList = this.tableMap
+//										  .values()
+//										  .stream()
+////										  .sorted(reverseOrder(Map.Entry.comparingByValue()) )
+//										  .collect ( toCollection(LinkedList::new));
+//		/* @formatter:on */
+//		return tableList;
+//		
+//	}
+//
+//	public LinkedList<Table> requestTablesFrom(int startLeftNumber) {
+//
+//		/* @formatter:off */
+//		LinkedList<Table> tableList = this.tableMap
+//										  .values()
+//						    			  .stream()
+//										  .collect( toCollection(LinkedList::new) );
+//		/* @formatter:on */
+//		return tableList;
+//		
+//	}
 
 	
  }

@@ -10,9 +10,9 @@ public class ViewDemo211 {
     public static void main(String[] args) {
         //
         int startLeftNumber = 1;
-        TimesTable timesTable = new TimesTable( startLeftNumber, Equation.END_LEFT_NUMBER );
-        showColumnTableLineViewDemo(timesTable);
-        showSquareTableLineViewDemo(timesTable);
+//        TimesTable timesTable = new TimesTable( startLeftNumber, Equation.END_LEFT_NUMBER );
+//        showColumnTableLineViewDemo(timesTable);
+//        showSquareTableLineViewDemo(timesTable);
     }
 
     public static void showColumnTableLineViewDemo(TimesTable timesTable) {
