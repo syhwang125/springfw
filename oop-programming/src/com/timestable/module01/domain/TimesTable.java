@@ -81,7 +81,7 @@ public class TimesTable implements JsonSerializable {
 	}
 	
 	
-	// 이건 언제 호출되지? 
+	// 이건 언제 호출되지?    $module02/ConsoleView.show()에서 호출됨 - square, linetype으로 구분되어 시작값이 달라짐 
 	public List<Table> requestTables(int startLeftNumber) {
 		//
 		

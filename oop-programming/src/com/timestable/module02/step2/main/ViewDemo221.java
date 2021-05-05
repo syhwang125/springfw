@@ -5,6 +5,8 @@ import com.timestable.module02.step1.view.ConsoleView;
 import com.timestable.module02.step1.view.TableLineViewOption;
 import com.timestable.module01.domain.*;
 
+import static com.timestable.module01.domain.Equation.END_LEFT_NUMBER;
+import static com.timestable.module01.domain.Format.InMath;
 
 public class ViewDemo221 {
     //
@@ -12,11 +14,11 @@ public class ViewDemo221 {
         //
         // 아래 주석을 풀고 동작하도록 관련 코드를 수정/개발하세요.
         //
-//        int startLeftNumber = 1;
-//        TimesTable timesTable = new TimesTable(startLeftNumber, Equation.END_LEFT_NUMBER);
-//
+        int startLeftNumber = 1;
+        TimesTable timesTable = new TimesTable(startLeftNumber, Equation.END_LEFT_NUMBER, Format.InMath);
+
 //        showColumnTableDemo(timesTable);
-//        showTriangleTableDemo(timesTable);
+        showTriangleTableDemo(timesTable);
     }
 
     public static void showColumnTableDemo(TimesTable timesTable) {
@@ -31,11 +33,11 @@ public class ViewDemo221 {
         TableLineViewOption tableLineViewOption = new TableLineViewOption(TableLineType.Triangle, 9);
         ConsoleView consoleView = new ConsoleView(tableLineViewOption);
 
-//        TableOption tableOption = timesTable.getTableOption();
-//        tableOption.setTableFormat(Format.InMath);
-//        tableOption.setEquationOrder(SortOrder.Ascending);
-//        tableOption.setTableOrder(SortOrder.Ascending);
-//        timesTable.setTableOption(tableOption);
-//        consoleView.show(timesTable);
+        TableOption tableOption = timesTable.getTableOption();
+        tableOption.setTableFormat(Format.InMath);
+        tableOption.setEquationOrder(SortOrder.Ascending);
+        tableOption.setTableOrder(SortOrder.Ascending);
+        timesTable.setTableOption(tableOption);
+        consoleView.show(timesTable);
     }
 }

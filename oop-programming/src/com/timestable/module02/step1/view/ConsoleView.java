@@ -49,6 +49,7 @@ public class ConsoleView {
 		while(sourceTables.size() > 0) {
 			//
 			AbstractTableLineView tableLineView = buildTableLineView();
+//			System.out.println( " 0. ConsoleView.show() tableLineView : " + tableLineView + " , sourceTables size : " + sourceTables.size() );
 			tableLineView.takeUnitTables(sourceTables);
 			tableLineViews.add(tableLineView);
  		}
@@ -62,6 +63,7 @@ public class ConsoleView {
 		for(AbstractTableLineView tableLineView : tableLineViews) {
 			tableLineView.showTableLine();
 		}
+		
 	}
 
 	private AbstractTableLineView buildTableLineView() {
@@ -76,10 +78,12 @@ public class ConsoleView {
 				tableLineView = new SquareTableLineView(tableLineViewOption);
 				break;
 			case Triangle:																	// for extension
-				int tableViewCount = tableLineViews.size();
-				if(tableViewCount == 0) {
-					tableLineView = new TriangleTableLineView(tableLineViewOption);
+				int tableViewCount = tableLineViews.size();				// 0, 1, 2, 3 으로 증가 
+				if(tableViewCount == 0) {       // 첫번째 라인 시작 (startIndex = 3, columnCount=1) 
+//					System.out.println( " 1.  Consoleview.buildTableLineView() tableViewCount =0 , columnCount = " + tableLineViewOption.getColumnCount() );
+					tableLineView = new TriangleTableLineView(tableLineViewOption);   
 				} else {
+//					System.out.println(" 2. ConsoleView.buildTableLineView() tableViewCount " + tableViewCount + " , columnCount : " + tableLineViewOption.getColumnCount() );
 					tableLineView = new TriangleTableLineView((TriangleTableLineView) tableLineViews.get(tableViewCount-1));
 				}
 				break;
