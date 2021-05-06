@@ -32,16 +32,17 @@ public class TimesTable implements JsonSerializable {
 	
 	public TimesTable() {
 		this( Equation.DEFAULT_START_LEFT_NUMBER, 
-				 Equation.END_LEFT_NUMBER, 
-				 Format.InMath);
+				 Equation.END_LEFT_NUMBER);
+//				 Format.InMath);
 	}
 	
-	public TimesTable(int startLeftNumber, int endLeftNumber, Format format) {
+//	public TimesTable(int startLeftNumber, int endLeftNumber, Format format) {
+	public TimesTable(int startLeftNumber, int endLeftNumber) {
 		this.startLeftNumber = startLeftNumber;
 		this.endLeftNumber = endLeftNumber;
 		this.tableOption = new TableOption();
 		
-		this.tableOption.setTableFormat(format);   //
+//		this.tableOption.setTableFormat(format);   //
 		
 		this.tableMap = new LinkedHashMap<>();
 		this.initialize();

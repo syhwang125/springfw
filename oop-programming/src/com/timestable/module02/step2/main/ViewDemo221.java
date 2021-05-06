@@ -15,7 +15,7 @@ public class ViewDemo221 {
         // 아래 주석을 풀고 동작하도록 관련 코드를 수정/개발하세요.
         //
         int startLeftNumber = 1;
-        TimesTable timesTable = new TimesTable(startLeftNumber, Equation.END_LEFT_NUMBER, Format.InMath);
+        TimesTable timesTable = new TimesTable(startLeftNumber, Equation.END_LEFT_NUMBER);
 
 //        showColumnTableDemo(timesTable);
         showTriangleTableDemo(timesTable);
